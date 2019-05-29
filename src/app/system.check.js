@@ -57,12 +57,11 @@ debugger;
   else
     failedResult.push('srcset attribute');
 
-/* Test #007 : Device Orientation */
-if(!!window.DeviceOrientationEvent)
- succeededResult.push('Device Orientation');
-     
-    else 
-        failedResult.push('Device Orientation');
+  /* Test #007 : Device Orientation */
+  if (!!window.DeviceOrientationEvent)
+    succeededResult.push('Device Orientation');
+  else
+    failedResult.push('Device Orientation');
 
 
 

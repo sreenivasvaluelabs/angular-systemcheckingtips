@@ -13,13 +13,18 @@ debugger;
     failedResult.push('videoElement');
 
   /* Test #002 : /* h.264 codec */
-  var videoCodecelement = document.createElement('video');
-  if ((videoCodecelement, 'video/mp4; codecs="avc1.42E01E"').canPlayType) {
-    succeededResult.push('videoCodecelement');
-  }
+  var vid = document.createElement('video');
+  var vidType = 'video/mp4';
+  var codType = 'avc1.42E01E, mp4a.40.2';
+  var isSupp = vid.canPlayType(vidType + ';codecs="' + codType + '"');
 
+  if (isSupp != '')
+    succeededResult.push('videoCodecelement');
   else
     failedResult.push('videoCodecelement');
+    
+
+
 
   /* Test #003 : Video Subtitles */
   var videoSubtitles = document.createElement('track');

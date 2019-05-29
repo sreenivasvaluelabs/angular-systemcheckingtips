@@ -5,12 +5,13 @@ export function RunSystemCheck() {
 debugger;
 
   /* Test #001 : Video Element */
+  var videoCheck = false;
   var element = document.createElement('video');
-  var videoCheck = !!element.canPlayType;
-  if (videoCheck === true)
-    succeededResult.push('videoElement');
+
+  if (!!element.canPlayType === true)
+    videoCheck = true;
   else
-    failedResult.push('videoElement');
+    videoCheck = false;
 
   /* Test #002 : /* h.264 codec */
   var vid = document.createElement('video');
@@ -19,19 +20,23 @@ debugger;
   var isSupp = vid.canPlayType(vidType + ';codecs="' + codType + '"');
 
   if (isSupp != '')
-    succeededResult.push('videoCodecelement');
+    videoCheck = true;
   else
-    failedResult.push('videoCodecelement');
-    
-
-
+    videoCheck = false;
 
   /* Test #003 : Video Subtitles */
   var videoSubtitles = document.createElement('track');
   if ('track' in videoSubtitles)
-    succeededResult.push('videoSubtitles');
+    videoCheck = true;
   else
-    failedResult.push('videoSubtitles');
+    videoCheck = false;
+
+  if (videoCheck === true)
+    succeededResult.push('Video');
+  else
+    failedResult.push('Video');
+
+
 
 
   /*HTML5 (If any of these HTML5 Support is marked is missing, not all the detail)*/

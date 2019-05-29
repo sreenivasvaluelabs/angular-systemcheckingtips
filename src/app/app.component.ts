@@ -38,7 +38,7 @@ passiveScoringArray: Array<IPassiveScoringFields>;
             const devicePassiveData: IPassiveScoringFields = { name: 'DeviceType/ScreenSize', value: array[1] };
             this.passiveScoringArray = new Array<IPassiveScoringFields>();
             this.passiveScoringArray.push(browserPassiveData);
-            //this.passiveScoringArray.push(devicePassiveData);
+            this.passiveScoringArray.push(devicePassiveData);
              console.log('success'+ this.passiveScoringArray);
     }
 

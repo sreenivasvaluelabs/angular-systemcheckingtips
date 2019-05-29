@@ -63,6 +63,12 @@ debugger;
   else
     failedResult.push('Device Orientation');
 
+/* Test #007 : Access the webcam */
+  if (!!navigator.mediaDevices && !!navigator.mediaDevices.getUserMedia ? true : !!navigator.getUserMedia ? true : !!navigator.webkitGetUserMedia || !!navigator.mozGetUserMedia || !!navigator.msGetUserMedia || !!navigator.oGetUserMedia ? true : NO)
+  succeededResult.push('Access the webcam');
+  else
+    failedResult.push('Access the webcam');
+
 
 
 

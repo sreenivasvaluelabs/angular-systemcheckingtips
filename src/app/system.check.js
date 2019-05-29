@@ -3,6 +3,70 @@ export function RunSystemCheck() {
     var succeededResult = [];
     var failedResult = [];
 debugger;
+
+  /* Test #001 : Video Element */
+  var element = document.createElement('video');
+  var videoCheck = !!element.canPlayType;
+  if (videoCheck === true)
+    succeededResult.push('videoElement');
+  else
+    failedResult.push('videoElement');
+
+  /* Test #002 : /* h.264 codec */
+  var videoCodecelement = document.createElement('video');
+  if ((videoCodecelement, 'video/mp4; codecs="avc1.42E01E"').canPlayType) {
+    succeededResult.push('videoCodecelement');
+  }
+
+  else
+    failedResult.push('videoCodecelement');
+
+  /* Test #003 : Video Subtitles */
+  var videoSubtitles = document.createElement('track');
+  if ('track' in videoSubtitles)
+    succeededResult.push('videoSubtitles');
+  else
+    failedResult.push('videoSubtitles');
+
+
+  /*HTML5 (If any of these HTML5 Support is marked is missing, not all the detail)*/
+
+  /* Test #004 : Parsing inline SVG */
+  var element = document.createElement('div');
+  element.innerHTML = '<svg></svg>';
+  var passed = element.firstChild && "namespaceURI" in element.firstChild && element.firstChild.namespaceURI == 'http://www.w3.org/2000/svg';
+
+  if (passed)
+    succeededResult.push('Parsing inline SVG');
+  else
+    failedResult.push('Parsing inline SVG');
+
+
+  /* Test #005 : Shadow DOM */
+  var element = document.createElement('div');
+  if ('attachShadow' in element ? true : 'createShadowRoot' in element || 'webkitCreateShadowRoot' in element ? true : false)
+
+    succeededResult.push('Shadow DOM');
+  else
+    failedResult.push('Shadow DOM');
+
+  /* Test #006 : srcset attribute */
+  var element = document.createElement('img');
+  if ('srcset' in element)
+    succeededResult.push('srcset attribute');
+  else
+    failedResult.push('srcset attribute');
+
+/* Test #007 : Device Orientation */
+if(!!window.DeviceOrientationEvent)
+ succeededResult.push('Device Orientation');
+     
+    else 
+        failedResult.push('Device Orientation');
+
+
+
+
     /* Test #1 : Audio Element */
     var element = document.createElement('audio');
     var audioCheck = !!element.canPlayType;

@@ -17,14 +17,15 @@ debugger;
   var vid = document.createElement('video');
   var vidType = 'video/mp4';
   var codType = 'avc1.42E01E, mp4a.40.2';
-  var isSupp = vid.canPlayType(vidType + ';codecs="' + codType + '"');
- /*isSupp should be probably or maybe means the browser will support*/
- console.log(vid.canPlayType(vidType + ';codecs="' + codType + '"'));
-  if (isSupp != '')
-    videoCheck = true;
-  else
-    videoCheck = false;
-
+  if (vid.canPlayType) {
+    var isSupp = vid.canPlayType(vidType + ';codecs="' + codType + '"');
+    /*isSupp should be probably or maybe means the browser will support*/
+    console.log(vid.canPlayType(vidType + ';codecs="' + codType + '"'));
+    if (isSupp != '')
+      videoCheck = true;
+    else
+      videoCheck = false;
+  }
   /* Test #003 : Video Subtitles */
   var videoSubtitles = document.createElement('track');
   if ('track' in videoSubtitles)

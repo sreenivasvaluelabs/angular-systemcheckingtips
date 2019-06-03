@@ -267,32 +267,27 @@ export function RunSystemCheck() {
 
 
   /*HTML5 (If any of these HTML5 Support is marked is missing, not all the detail)*/
-  var chkSVGDOMSRC = true;
+  var chkSVGDOMSRC = false;
   /* Test #004 : Parsing inline SVG */
   var element = document.createElement('div');
   element.innerHTML = '<svg></svg>';
   var passed = element.firstChild && "namespaceURI" in element.firstChild && element.firstChild.namespaceURI == 'http://www.w3.org/2000/svg';
 
-  if (!passed)
-    chkSVGDOMSRC = false;
-
-
-
+  if (passed)
+    chkSVGDOMSRC = true;
 
   /* Test #005 : Shadow DOM */
   var element = document.createElement('div');
   if ('attachShadow' in element ? true : 'createShadowRoot' in element || 'webkitCreateShadowRoot' in element ? true : false)
 
     chkSVGDOMSRC = true;
-  else
-    chkSVGDOMSRC = false;
+
 
   /* Test #006 : srcset attribute */
   var element = document.createElement('img');
   if ('srcset' in element)
     chkSVGDOMSRC = true;
-  else
-    chkSVGDOMSRC = false;
+
 
 
   if (ES6Check && chkSVGDOMSRC)

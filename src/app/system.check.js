@@ -20,7 +20,7 @@ export function RunSystemCheck() {
   if (vid.canPlayType) {
     var isSupp = vid.canPlayType(vidType + ';codecs="' + codType + '"');
     /*isSupp should be probably or maybe means the browser will support*/
-    console.log(vid.canPlayType(vidType + ';codecs="' + codType + '"'));
+    
     if (isSupp != '')
       videoCheck = true;
     else
@@ -50,7 +50,7 @@ export function RunSystemCheck() {
     failedResult.push('Device Orientation');
 
   /* Test #007 : Access the webcam */
-  if (!!navigator.mediaDevices && !!navigator.mediaDevices.getUserMedia ? true : !!navigator.getUserMedia ? true : !!navigator.webkitGetUserMedia || !!navigator.mozGetUserMedia || !!navigator.msGetUserMedia || !!navigator.oGetUserMedia ? true : NO)
+  if (!!navigator.mediaDevices && !!navigator.mediaDevices.getUserMedia ? true : !!navigator.getUserMedia ? true : !!navigator.webkitGetUserMedia || !!navigator.mozGetUserMedia || !!navigator.msGetUserMedia || !!navigator.oGetUserMedia ? true : false)
     succeededResult.push('Access the webcam');
   else
     failedResult.push('Access the webcam');
